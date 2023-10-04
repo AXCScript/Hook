@@ -1,0 +1,62 @@
+if not game.CoreGui:FindFirstChild("Manako Notify") then
+    local Manako_Notify = Instance.new("ScreenGui")
+    local Item = Instance.new("Frame")
+    local UIListLayout = Instance.new("UIListLayout")
+    local UIStroke = Instance.new("UIStroke")
+    local TextLabel = Instance.new("TextLabel")
+    local UICorner = Instance.new("UICorner")
+    Manako_Notify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    Manako_Notify.Name = "Manako Notify"
+    Manako_Notify.Parent = game:GetService("CoreGui")
+    
+    Item.BorderSizePixel = 0
+    Item.Size = UDim2.new(0, 226, 0, 570)
+    Item.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Item.BackgroundTransparency = 1
+    Item.Name = "Item"
+    Item.Position = UDim2.new(0, 0, 0.0172176, 0)
+    Item.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Item.Parent = Manako_Notify
+    
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Padding = UDim.new(0, 3)
+    UIListLayout.Name = "UIListLayout"
+    UIListLayout.Parent = Item
+    end
+    
+    function notify(name,waits)
+    local Notify = Instance.new("Frame")
+    local UIStroke = Instance.new("UIStroke")
+    local TextLabel = Instance.new("TextLabel")
+    local UICorner = Instance.new("UICorner")
+    Notify.ZIndex = 2
+    Notify.BorderSizePixel = 0
+    Notify.Size = UDim2.new(0, 226, 0, 21)
+    Notify.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Notify.Name = "Notify"
+    Notify.Position = UDim2.new(0, 0, 0.0172176, 0)
+    Notify.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    Notify.Parent = game.CoreGui:FindFirstChild("Manako Notify").Item
+    UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    UIStroke.Name = "UIStroke"
+    UIStroke.Color = Color3.fromRGB(255, 255, 255)
+    UIStroke.Parent = Notify
+    TextLabel.BorderSizePixel = 0
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+    TextLabel.TextSize = 15
+    TextLabel.Size = UDim2.new(1, 0, 1, 0)
+    TextLabel.Name = "TextLabel"
+	TextLabel.ClipsDescendants = true
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel.Text = name
+    TextLabel.BackgroundTransparency = 1
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel.Parent = Notify
+    UICorner.Name = "UICorner"
+    UICorner.CornerRadius = UDim.new(0, 4)
+    UICorner.Parent = Notify
+        game.Debris:AddItem(Notify,waits)
+    end
+return notify
