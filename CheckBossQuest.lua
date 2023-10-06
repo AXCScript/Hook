@@ -215,3 +215,4 @@
             CFrameBoss = CFrame.new(-9515.62109, 315.925537, 6691.12012)
         end
     end
+return CheckBossQuest
